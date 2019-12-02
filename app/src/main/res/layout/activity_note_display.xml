@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".NoteDisplay">
 
-    <TextView
+    <EditText
         android:id="@+id/noteText"
-        android:layout_width="405dp"
-        android:layout_height="733dp"
+        android:layout_width="415dp"
+        android:layout_height="727dp"
         android:layout_marginTop="@android:dimen/thumbnail_height"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:text="TextView"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
