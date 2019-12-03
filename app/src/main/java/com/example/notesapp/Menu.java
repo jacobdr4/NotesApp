@@ -37,7 +37,7 @@ public class Menu extends AppCompatActivity {
 
             //Adds the new note button or note button
             if (i == 0) {
-                noteButton.setText("New Note Button");
+                noteButton.setText("New Note");
                 noteButton.setOnClickListener(unused -> newNoteButtonClicked());
             } else {
                 noteButton.setText("Note: " + i);
