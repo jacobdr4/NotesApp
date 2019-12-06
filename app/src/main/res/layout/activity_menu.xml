@@ -6,10 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
-    <ScrollView
+    <Button
+        android:id="@+id/newNoteButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="48dp">
+        android:layout_height="85dp"
+        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+        android:layout_marginBottom="2dp"
+        android:text="New Note"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="644dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newNoteButton">
 
         <LinearLayout
             android:id="@+id/buttonList"
