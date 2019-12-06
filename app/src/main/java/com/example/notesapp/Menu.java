@@ -41,7 +41,7 @@ public class Menu extends AppCompatActivity {
                 noteButton.setOnClickListener(unused -> newNoteButtonClicked());
             } else {
                 noteButton.setText("Note: " + i);
-                final String noteCtr = "Selected Note: " + i;
+                final String noteCtr = "Note: " + i;
                 noteButton.setOnClickListener(unused -> noteButtonClicked(noteCtr));
             }
             buttonList.addView(buttonChunk);

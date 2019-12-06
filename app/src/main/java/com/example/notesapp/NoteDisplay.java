@@ -19,6 +19,9 @@ public class NoteDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("noteID");
 
+        TextView title = findViewById(R.id.noteTitle);
+        title.setText(id);
+
         EditText text = findViewById(R.id.noteText);
         text.setText(id);
     }
