@@ -18,11 +18,12 @@ public class NoteDisplay extends AppCompatActivity {
 
         Intent intent = getIntent();
         String id = intent.getStringExtra("noteID");
+        String idSelected = "Selected " + id;
 
         TextView title = findViewById(R.id.noteTitle);
         title.setText(id);
 
         EditText text = findViewById(R.id.noteText);
-        text.setText(id);
+        text.setText(idSelected);
     }
 }

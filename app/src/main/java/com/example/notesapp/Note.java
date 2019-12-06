@@ -3,7 +3,7 @@ package com.example.notesapp;
 // import androidx.room.Entity;
 // import androidx.room.PrimaryKey;
 
-import android.content.res.Resources;
+// import android.content.res.Resources;
 
 // @Entity
 public final class Note {
@@ -21,9 +21,11 @@ public final class Note {
         text = t;
     }
 
+    /*
     public int[] getDimensions() {
         int width = Resources.getSystem().getDisplayMetrics().widthPixels;
         int height = Resources.getSystem().getDisplayMetrics().heightPixels;
         return new int[] {width, height};
     }
+     */
 }
