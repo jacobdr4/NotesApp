@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NoteDisplay"></activity>
-        <activity android:name=".Note" />
+        <activity android:name=".RoomData.Note" />
         <activity android:name=".Menu" />
         <activity android:name=".MainActivity">
             <intent-filter>
