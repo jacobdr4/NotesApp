@@ -9,9 +9,7 @@
     <Button
         android:id="@+id/newNoteButton"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_marginTop="@android:dimen/notification_large_icon_height"
-        android:layout_marginBottom="2dp"
+        android:layout_height="126dp"
         android:text="New Note"
         app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +19,7 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="644dp"
-        android:layout_marginTop="2dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

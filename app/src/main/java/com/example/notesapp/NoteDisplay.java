@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -46,6 +47,18 @@ public class NoteDisplay extends AppCompatActivity {
         title.setText(receivedNote.getTitle());
 
         System.out.println("Note data displayed");
+
+        //Delete Button
+        Button deleteButton = findViewById(R.id.deleteButton);
+        deleteButton.setOnClickListener(unused -> deleteButtonPressed());
+    }
+
+    public void deleteButtonPressed() {
+        noteDAO.deleteData(receivedNote);
+
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+        finish();
     }
 
 
@@ -60,7 +73,7 @@ public class NoteDisplay extends AppCompatActivity {
         receivedNote.setTitle(title.getText().toString());
 
         //Put the new note in the DAO
-        noteDAO = appDatabase.getNoteDAO();
+        //noteDAO = appDatabase.getNoteDAO();
         noteDAO.updateData(receivedNote);
 
         Intent intent = new Intent(this, Menu.class);

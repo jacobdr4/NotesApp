@@ -23,7 +23,6 @@ public interface DatabaseAccess {
     @Delete
     public void deleteData(Note note);
 
-    //Fix this, I think this is whats causing the issue
     @Query("SELECT * FROM notes WHERE id = :id")
     public Note getItemById(int id);
 }
