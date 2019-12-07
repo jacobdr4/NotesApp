@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class NoteDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_display);
 
+        noteDAO = appDatabase.getNoteDAO();
+
         System.out.println("Note Display Started");
 
         //Receive the note of the button that was clicked
@@ -46,8 +49,19 @@ public class NoteDisplay extends AppCompatActivity {
         title.setText(receivedNote.getTitle());
 
         System.out.println("Note data displayed");
+
+        Button deleteButton = findViewById(R.id.deleteButton);
+        deleteButton.setOnClickListener(unused -> deleteButtonPressed());
     }
 
+    public void deleteButtonPressed() {
+        receivedNote.setDisplay(false);
+        noteDAO.updateData(receivedNote);
+
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+        finish();
+    }
 
     @Override
     public void onBackPressed() {

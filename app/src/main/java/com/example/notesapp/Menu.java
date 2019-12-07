@@ -22,13 +22,14 @@ import static com.example.notesapp.MainActivity.appDatabase;
 
 public class Menu extends AppCompatActivity {
     //Initialize the Room Database
-    DatabaseAccess noteDAO = appDatabase.getNoteDAO();
+    private DatabaseAccess noteDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_menu);
+        noteDAO = appDatabase.getNoteDAO();
 
         List<Note> noteList = noteDAO.getNotes();
 
@@ -56,14 +57,15 @@ public class Menu extends AppCompatActivity {
         //Create actual notes buttons
         LinearLayout buttonList = findViewById(R.id.buttonList);
         for (int i = 0; i < noteList.size(); i++) {
-            //System.out.println("Button Made");
-            View buttonChunk = getLayoutInflater().inflate(R.layout.chunk_note,
-                    buttonList, false);
-            Button noteButton = buttonChunk.findViewById(R.id.noteTextButton);
-            noteButton.setText(noteList.get(i).getTitle());
-            final int noteID = noteList.get(i).getId();
-            noteButton.setOnClickListener(unused -> noteButtonClicked(noteID));
-            buttonList.addView(buttonChunk);
+            if (noteList.get(i).getDisplay()) {
+                View buttonChunk = getLayoutInflater().inflate(R.layout.chunk_note,
+                        buttonList, false);
+                Button noteButton = buttonChunk.findViewById(R.id.noteTextButton);
+                noteButton.setText(noteList.get(i).getTitle());
+                final int noteID = noteList.get(i).getId();
+                noteButton.setOnClickListener(unused -> noteButtonClicked(noteID));
+                buttonList.addView(buttonChunk);
+            }
         }
     }
 
@@ -74,7 +76,8 @@ public class Menu extends AppCompatActivity {
 
         //Add note to list, create new button and change title text
         //FOR SOME REASON, WHEN THE NOTE IS FIRST CREATED IT HAS AN ID OF 42?!?!?! OR 47??!
-        noteList.add(new Note("Note #" + (noteList.size() + 1),"Edit Text Here", noteList.size() + 1));
+        noteList.add(new Note("Note #" + (noteList.size() + 1),
+                "Edit Text Here", noteList.size() + 1, true));
         Button noteButton = buttonChunk.findViewById(R.id.noteTextButton);
         noteButton.setText(noteList.get(noteList.size() - 1).getTitle());
 
