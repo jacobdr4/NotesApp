@@ -34,8 +34,8 @@ public class Menu extends AppCompatActivity {
         noteDAO = appDatabase.getNoteDAO();
         List<Note> noteList = noteDAO.getNotes();
 
-        //deleteData(noteList);
-        //noteList = noteDAO.getNotes();
+        deleteData(noteList);
+        noteList = noteDAO.getNotes();
 
         setUpUI(noteList);
     }
@@ -75,10 +75,8 @@ public class Menu extends AppCompatActivity {
                 buttonList, false);
 
         //Add note to list, create new button and change title text
-        //FOR SOME REASON, WHEN THE NOTE IS FIRST CREATED IT HAS AN ID OF 42?!?!?! OR 47??!
-        //noteList.add(new Note("New Note","Edit Text Here", noteList.size() + 1));
-        noteList.add(new Note("New Note","Edit Text Here", (int) (Math.random() * 10000)));
-        noteList.get(noteList.size() - 1).setTitle("New Note: " + noteList.get(noteList.size() - 1).getId());
+        noteList.add(new Note("New Note","Edit Text Here", noteList.size() - 1));
+        //noteList.add(new Note("New Note","Edit Text Here", (int) (Math.random() * 10000)));
         Button noteButton = buttonChunk.findViewById(R.id.noteTextButton);
         noteButton.setText(noteList.get(noteList.size() - 1).getTitle());
 

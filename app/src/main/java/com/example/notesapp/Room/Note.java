@@ -17,7 +17,7 @@ import java.util.List;
 @Entity(tableName = "notes")
 public class Note implements Serializable {
     @PrimaryKey (autoGenerate = true)
-    private int id;
+    private Integer id;
 
     @ColumnInfo(name = "title")
     private String title;
@@ -30,10 +30,10 @@ public class Note implements Serializable {
         this.text = text;
         this.id = id;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int i) {
+    public void setId(Integer i) {
         id = i;
     }
     public String getText() {

@@ -24,5 +24,5 @@ public interface DatabaseAccess {
     public void deleteData(Note note);
 
     @Query("SELECT * FROM notes WHERE id = :id")
-    public Note getItemById(int id);
+    public Note getItemById(Integer id);
 }
