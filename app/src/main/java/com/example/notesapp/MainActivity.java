@@ -24,12 +24,11 @@ public static AppDatabase appDatabase;
         setContentView(R.layout.activity_main);
 
         //Import Room database
-        appDatabase = Room.databaseBuilder(this, AppDatabase.class, "notes").allowMainThreadQueries().build();
+        appDatabase = Room.databaseBuilder(this, AppDatabase.class, "notes").allowMainThreadQueries().fallbackToDestructiveMigration().build();
 
         //Start da app!!
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
         finish();
     }
-
 }

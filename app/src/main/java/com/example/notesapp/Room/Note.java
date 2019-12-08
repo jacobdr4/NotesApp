@@ -25,10 +25,14 @@ public class Note implements Serializable {
     @ColumnInfo(name = "text")
     private String text;
 
-    public Note(String title, String text, int id) {
+    @ColumnInfo(name = "display")
+    private boolean display;
+
+    public Note(String title, String text, int id, boolean display) {
         this.title = title;
         this.text = text;
         this.id = id;
+        this.display = display;
     }
     public Integer getId() {
         return id;
@@ -48,6 +52,13 @@ public class Note implements Serializable {
     public void setTitle(String t) {
         title = t;
     }
+    public void setDisplay(boolean display) {
+        this.display = display;
+    }
+    public boolean getDisplay() {
+        return display;
+    }
+
     public String toString() {
         return id + ": " + title + "\n" + text;
     }

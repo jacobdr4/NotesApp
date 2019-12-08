@@ -28,6 +28,8 @@ public class NoteDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_display);
 
+        noteDAO = appDatabase.getNoteDAO();
+
         System.out.println("Note Display Started");
 
         //Receive the note of the button that was clicked
@@ -48,19 +50,18 @@ public class NoteDisplay extends AppCompatActivity {
 
         System.out.println("Note data displayed");
 
-        //Delete Button
         Button deleteButton = findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(unused -> deleteButtonPressed());
     }
 
     public void deleteButtonPressed() {
-        noteDAO.deleteData(receivedNote);
+        receivedNote.setDisplay(false);
+        noteDAO.updateData(receivedNote);
 
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
         finish();
     }
-
 
     @Override
     public void onBackPressed() {
@@ -73,7 +74,7 @@ public class NoteDisplay extends AppCompatActivity {
         receivedNote.setTitle(title.getText().toString());
 
         //Put the new note in the DAO
-        //noteDAO = appDatabase.getNoteDAO();
+        noteDAO = appDatabase.getNoteDAO();
         noteDAO.updateData(receivedNote);
 
         Intent intent = new Intent(this, Menu.class);
