@@ -10,6 +10,21 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="DeleteButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorAccent">@color/Red</item>
+        <item name="colorButtonNormal">@color/Red</item>
+    </style>
+
+    <style name="NewNoteButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorAccent">@color/NewNoteColor</item>
+        <item name="colorButtonNormal">@color/NewNoteColor</item>
+    </style>
+
+    <style name="NoteButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorAccent">@color/Cyan</item>
+        <item name="colorButtonNormal">@color/White</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

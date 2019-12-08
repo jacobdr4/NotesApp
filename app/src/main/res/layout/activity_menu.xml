@@ -23,6 +23,9 @@
 
             <Button
                 android:id="@+id/newNoteButton"
+                android:theme="@style/NewNoteButton"
+                android:textStyle="bold"
+                android:fontFamily="cursive"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="New Note" />

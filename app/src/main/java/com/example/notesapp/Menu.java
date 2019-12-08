@@ -76,7 +76,7 @@ public class Menu extends AppCompatActivity {
 
         //Add note to list, create new button and change title text
         //FOR SOME REASON, WHEN THE NOTE IS FIRST CREATED IT HAS AN ID OF 42?!?!?! OR 47??!
-        noteList.add(new Note("Note #" + (noteList.size() + 1),
+        noteList.add(new Note("Recently Added Note",
                 "Edit Text Here", noteList.size() + 1, true));
         Button noteButton = buttonChunk.findViewById(R.id.noteTextButton);
         noteButton.setText(noteList.get(noteList.size() - 1).getTitle());
