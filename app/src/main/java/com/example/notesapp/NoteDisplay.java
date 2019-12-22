@@ -55,8 +55,32 @@ public class NoteDisplay extends AppCompatActivity {
     }
 
     public void deleteButtonPressed() {
-        receivedNote.setDisplay(false);
-        noteDAO.updateData(receivedNote);
+        // receivedNote.setDisplay(false);
+        // noteDAO.updateData(receivedNote);
+        int deletedId = receivedNote.getId();
+        noteDAO.deleteData(receivedNote);
+
+        // Change ID's of existing notes
+        List<Note> noteList = noteDAO.getNotes();
+        for (int i = deletedId-1; i < noteList.size(); i++) {
+            Note current = noteList.get(i);
+            current.setId(current.getId() - 1);
+        }
+        List<Note> oldList = noteDAO.getNotes();
+        for (int i = deletedId-1; i < oldList.size(); i++) {
+            noteDAO.deleteData(oldList.get(i));
+        }
+        for (int i = deletedId-1; i < noteList.size(); i++) {
+            noteDAO.addNote(noteList.get(i));
+        }
+        /*
+        for (Note note: noteDAO.getNotes()) {
+            noteDAO.deleteData(note);
+        }
+        for (Note note: noteList) {
+            noteDAO.addNote(note);
+        }
+         */
 
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);

@@ -33,8 +33,8 @@ public class Menu extends AppCompatActivity {
 
         List<Note> noteList = noteDAO.getNotes();
 
-        //deleteData(noteList);
-        //noteList = noteDAO.getNotes();
+        // deleteData(noteList);
+        // noteList = noteDAO.getNotes();
 
         setUpUI(noteList);
     }

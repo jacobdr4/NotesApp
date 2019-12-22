@@ -16,7 +16,7 @@ import com.example.notesapp.Room.AppDatabase;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-public static AppDatabase appDatabase;
+    public static AppDatabase appDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
